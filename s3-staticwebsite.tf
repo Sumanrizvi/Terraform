@@ -1,5 +1,9 @@
 resource "aws_s3_bucket" "s3staticwebsitebucket" {
-    bucket = "rizvis3staticwebsitelesson"
+    bucket = "rizvis3staticwebsitelesson1"
+
+    versioning {
+        enabled = true
+    }
 }
 
 resource "aws_s3_bucket_object" "s3staticwebsiteindex" {
