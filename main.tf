@@ -9,14 +9,14 @@ terraform {
 }
 
 provider "aws" {
-    region = "us-west-2"
+    region = "us-east-1"
 }
 
 resource "aws_s3_bucket" "sumanisawesome"{
-    bucket = "marleyandmao"
+    bucket = "marleyandmao1"
 
     tags = {
-        Name        = "marleyandmao"
+        Name        = "marleyandmao1"
         Environment = "Dev"
     }
 }
@@ -27,4 +27,5 @@ resource "aws_s3_bucket_object" "object" {
     acl = "public-read"
     source = "../../downloads/cute-koala-sleeping-cartoon-illustration_138676-2778.jpg"
     etag = filemd5("../../downloads/cute-koala-sleeping-cartoon-illustration_138676-2778.jpg")
+    content_type = "text/html"
 }

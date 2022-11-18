@@ -4,6 +4,21 @@ resource "aws_s3_bucket" "s3staticwebsitebucket" {
     versioning {
         enabled = true
     }
+
+    lifecycle_rule {
+        id      = "lifecyclerule"
+        enabled = true
+
+        transition {
+            days          = 30
+            storage_class = "STANDARD_IA"
+        }
+
+        transition {
+             days          = 60
+            storage_class = "GLACIER"
+        }
+    }
 }
 
 resource "aws_s3_bucket_object" "s3staticwebsiteindex" {
